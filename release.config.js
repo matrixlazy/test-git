@@ -7,9 +7,10 @@ module.exports = {
       '@semantic-release/github',
       {
         assets: [
-          {'path': 'bundle.txt', 'label': 'JS distribution'},
+          { 'path': 'bundle.txt' },
         ]
       }
     ],
+    '@semantic-release/git'
   ]
 };
