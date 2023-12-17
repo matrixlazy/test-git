@@ -16,7 +16,6 @@ module.exports = {
           { 'path': 'bundle.txt' },
         ]
       }
-    ],
-    '@semantic-release/git'
+    ]
   ]
 };
