@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "echo 'text ' >> bundle.txt"
+    "build": "echo 'text ' >> bundle.txt",
+    "release": "npx semantic-release@22"
   },
   "keywords": [],
   "author": "",
