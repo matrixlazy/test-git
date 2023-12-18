@@ -21,7 +21,7 @@ module.exports = {
     [
       '@semantic-release/exec',
       {
-        successCmd: `echo ${nextRelease.version}`,
+        publishCmd: `echo ${nextRelease.version}`,
         // successCmd: `echo "cdn_version=\$\{nextRelease.version\}" >> $GITHUB_OUTPUT`,
       }
     ]
