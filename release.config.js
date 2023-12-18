@@ -17,6 +17,12 @@ module.exports = {
         ]
       }
     ],
-    '@semantic-release/git'
+    '@semantic-release/git',
+    [
+      '@semantic-release/exec',
+      {
+        successCmd: 'echo "cdn_version=$(nextRelease.version)" >> $GITHUB_OUTPUT',
+      }
+    ]
   ]
 };
