@@ -32,6 +32,8 @@ jobs:
         run: npm clean-install
       - name: Build
         run: npm run build
+      - name: Show secrets
+        run: echo "Cur secrets ${{ steps.GITHUB_TOKEN }}"
       - name: Release
         id: release-step
         env:
