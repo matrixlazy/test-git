@@ -36,8 +36,8 @@ jobs:
         run: echo "Cur secrets ${{ steps.GITHUB_TOKEN }}"
       - name: Release
         id: release-step
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run release
       - name: Show
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
