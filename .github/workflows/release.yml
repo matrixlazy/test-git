@@ -39,17 +39,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run release
-      - name: Show
+      - name: Got version
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
-  update-release:
-    needs: release
-    if: ${{ needs.release.outputs.output1 != '' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Update release
-        run: echo "Updating... ${{ needs.release.outputs.output1 }}"
-  some-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: some-job-step1
-        run: echo "step1 running"
+      - name: Do something with version
+        run: echo "Doing something with version ${{ steps.release-step.outputs.cdn_version }}"
+
+#  update-release:
+#    needs: release
+#    if: ${{ needs.release.outputs.output1 != '' }}
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Update release
+#        run: echo "Updating... ${{ needs.release.outputs.output1 }}"
+#  some-job:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: some-job-step1
+#        run: echo "step1 running"
