@@ -39,3 +39,15 @@ jobs:
         run: npm run release
       - name: Show
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
+  update-release:
+    needs: release
+    if: ${{ needs.release.outputs.cdn_version != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update release
+        run: echo "Updating... ${{ needs.release.outputs.cdn_version }}"
+  some-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: some-job-step1
+        run: echo "step1 running"
