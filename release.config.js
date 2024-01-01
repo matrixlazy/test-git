@@ -10,7 +10,7 @@ module.exports = {
         "notifyOnFail": false,
         "branchesConfig": [
           {
-            "pattern": "main",
+            "pattern": ['master', 'main'],
             "notifyOnSuccess": true,
             "notifyOnFail": true
           }
