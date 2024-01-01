@@ -43,7 +43,14 @@ jobs:
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
       - name: Check version
         if: ${{ steps.release-step.outputs.cdn_version == '' }}
-        run: exit 1
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setFailed('No version!')
+
+      #      - name: Check version
+      #        if: ${{ steps.release-step.outputs.cdn_version == '' }}
+      #        run: exit 1
       - name: Do something with version
         run: echo "Doing something with version ${{ steps.release-step.outputs.cdn_version }}"
 
