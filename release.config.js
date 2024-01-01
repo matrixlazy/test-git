@@ -4,6 +4,25 @@ module.exports = {
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     [
+      "semantic-release-slack-bot",
+      {
+        "notifyOnSuccess": false,
+        "notifyOnFail": false,
+        "slackWebhook": "https://my-webhook.com",
+        "branchesConfig": [
+          {
+            "pattern": "lts/*",
+            "notifyOnFail": true
+          },
+          {
+            "pattern": "master1",
+            "notifyOnSuccess": true,
+            "notifyOnFail": true
+          }
+        ]
+      }
+    ],
+    [
       '@semantic-release/npm',
       {
         npmPublish: false
