@@ -14,6 +14,8 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.release-step.outputs.cdn_version }}
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
@@ -41,11 +43,11 @@ jobs:
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
   update-release:
     needs: release
-#    if: ${{ needs.release.outputs.cdn_version != '' }}
+    #    if: ${{ needs.release.outputs.cdn_version != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Update release
-        run: echo "Updating... ${{ needs.release.outputs.cdn_version }}"
+        run: echo "Updating... ${{ needs.release.outputs.output1 }}"
   some-job:
     runs-on: ubuntu-latest
     steps:
