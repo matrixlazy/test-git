@@ -29,7 +29,7 @@ module.exports = {
       {
         "notifyOnSuccess": false,
         "notifyOnFail": false,
-        "slackWebhook": "https://hooks.slack.com/services/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",
+        "slackWebhook": "https://hooks.slack.com/services/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",
         "branchesConfig": [
           {
             "pattern": "main",
