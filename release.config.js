@@ -11,11 +11,7 @@ module.exports = {
         "slackWebhook": "https://my-webhook.com",
         "branchesConfig": [
           {
-            "pattern": "lts/*",
-            "notifyOnFail": true
-          },
-          {
-            "pattern": "master1",
+            "pattern": "main",
             "notifyOnSuccess": true,
             "notifyOnFail": true
           }
