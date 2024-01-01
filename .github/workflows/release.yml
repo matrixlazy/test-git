@@ -41,6 +41,9 @@ jobs:
         run: npm run release
       - name: Got version
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
+      - name: Check version
+        if: ${{ steps.release-step.outputs.cdn_version == '' }}
+        run: exit 1
       - name: Do something with version
         run: echo "Doing something with version ${{ steps.release-step.outputs.cdn_version }}"
 
