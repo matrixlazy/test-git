@@ -32,12 +32,10 @@ jobs:
         run: npm clean-install
       - name: Build
         run: npm run build
-      - name: Show secrets
-        run: echo "Cur secrets ${{ steps.RELEASE_TOKEN }}"
       - name: Release
         id: release-step
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run release
       - name: Show
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
