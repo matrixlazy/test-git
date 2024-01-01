@@ -43,7 +43,7 @@ jobs:
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
   update-release:
     needs: release
-    #    if: ${{ needs.release.outputs.cdn_version != '' }}
+    if: ${{ needs.release.outputs.output1 != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Update release
