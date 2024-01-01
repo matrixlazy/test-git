@@ -38,7 +38,7 @@ jobs:
         id: release-step
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+#          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         run: npm run release
       - name: Got version
         run: echo "Got version ${{ steps.release-step.outputs.cdn_version }}"
