@@ -8,3 +8,4 @@ beta2
 betafeat1
 breakcing1
 breakingchange 2
+feagt 2
