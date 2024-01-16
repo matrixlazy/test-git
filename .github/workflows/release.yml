@@ -29,6 +29,8 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
     steps:
+      - name: Show environment
+        run: echo "Running on this environment ${{ deployment.environment }}"
       - name: Checkout
         uses: actions/checkout@v3
         with:
