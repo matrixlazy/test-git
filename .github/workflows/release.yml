@@ -35,7 +35,7 @@ jobs:
       - name: Show normal vars and secrets
         run: echo "Normal ${{ vars.NORMAL_VAR_1 }} ${{ secrets.SLACK_WEBHOOK }}"
       - name: Show environment vars and secrets
-        run: echo "variable from shell environment $VAR1 $SECRET1"
+        run: echo "variable from shell environment111 ${{ vars.VAR1 }} ${{ secrets.SECRET1 }} $VAR1 $SECRET1"
 
 
       - name: Checkout
