@@ -20,6 +20,7 @@ permissions:
 env:
   VAR1: ${{ vars.VAR1 }}
   SECRET1: ${{ secrets.SECRET1 }}
+  env_var: ${{ vars.VAR1 }}
 
 jobs:
   release:
@@ -38,7 +39,9 @@ jobs:
       - name: Show normal vars and secrets
         run: echo "Normal ${{ vars.NORMAL_VAR_1 }} ${{ secrets.SLACK_WEBHOOK }}"
       - name: Show environment vars and secrets
-        run: echo "Here $VAR1 $SECRET1"
+        run: echo "variable from shell environment $env_var"
+
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
