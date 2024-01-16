@@ -30,7 +30,7 @@ jobs:
       id-token: write # to enable use of OIDC for npm provenance
     steps:
       - name: Show environment
-        run: echo "Running on this environment ${{ deployment.environment }}"
+        run: echo "Running on this environment ${{ inputs.environment }}"
       - name: Checkout
         uses: actions/checkout@v3
         with:
