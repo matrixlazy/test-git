@@ -21,7 +21,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    environment: dev
+    environment: ${{ inputs.environment }}
     outputs:
       output1: ${{ steps.release-step.outputs.cdn_version }}
     permissions:
