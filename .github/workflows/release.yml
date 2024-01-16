@@ -17,15 +17,11 @@ on:
 permissions:
   contents: read # for checkout
 
-env:
-  VAR1: ${{ vars.VAR1 }}
-  SECRET1: ${{ secrets.SECRET1 }}
-  env_var: ${{ vars.VAR1 }}
-
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     outputs:
       output1: ${{ steps.release-step.outputs.cdn_version }}
     permissions:
@@ -39,7 +35,7 @@ jobs:
       - name: Show normal vars and secrets
         run: echo "Normal ${{ vars.NORMAL_VAR_1 }} ${{ secrets.SLACK_WEBHOOK }}"
       - name: Show environment vars and secrets
-        run: echo "variable from shell environment $env_var"
+        run: echo "variable from shell environment $VAR1 $SECRET1"
 
 
       - name: Checkout
