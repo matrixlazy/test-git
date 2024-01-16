@@ -17,6 +17,10 @@ on:
 permissions:
   contents: read # for checkout
 
+env:
+  VAR1: ${{ vars.VAR1 }}
+  SECRET1: ${{ secrets.SECRET1 }}
+
 jobs:
   release:
     name: Release
@@ -34,7 +38,7 @@ jobs:
       - name: Show normal vars and secrets
         run: echo "Normal ${{ vars.NORMAL_VAR_1 }} ${{ secrets.SLACK_WEBHOOK }}"
       - name: Show environment vars and secrets
-        run: echo "Here ${{ vars.VAR1 }} ${{ secrets.SECRET1 }}"
+        run: echo "Here $VAR1 $SECRET1"
       - name: Checkout
         uses: actions/checkout@v3
         with:
