@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Show environment
         run: echo "Running on this environment ${{ inputs.environment }}"
+      - name: Show vars and secrets
+        run: echo "Here ${{ vars.VAR1 }} ${{ secrets.SECRET1 }}"
       - name: Checkout
         uses: actions/checkout@v3
         with:
