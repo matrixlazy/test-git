@@ -20,17 +20,17 @@ permissions:
 jobs:
   set_environment:
     outputs:
-      my_env: ${{ steps.setenv.outputs.my_env }}
+      deploy_env: ${{ steps.setenv.outputs.deploy_env }}
     runs-on: ubuntu-latest
     steps:
       - id: setenv
-        run: echo "my_env=${{ inputs.environment }}"  >> $GITHUB_OUTPUT
+        run: echo "deploy_env=${{ inputs.environment }}"  >> $GITHUB_OUTPUT
   release:
     name: Release
     runs-on: ubuntu-latest
     needs: set_environment
     environment:
-      name: ${{ needs.set_environment.outputs.my_env }}
+      name: ${{ needs.set_environment.outputs.deploy_env }}
     outputs:
       output1: ${{ steps.release-step.outputs.cdn_version }}
     permissions:
