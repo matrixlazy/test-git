@@ -18,11 +18,18 @@ permissions:
   contents: read # for checkout
 
 jobs:
+  set_environment:
+    outputs:
+      my_env: ${{ steps.setenv.outputs.my_env }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: setenv
+        run: echo "my_env=${{ inputs.environment }}"  >> $GITHUB_OUTPUT
   release:
     name: Release
     runs-on: ubuntu-latest
     environment:
-      name: ${{ inputs.environment }}
+      name: ${{ needs.set_environment.outputs.my_env }}
     outputs:
       output1: ${{ steps.release-step.outputs.cdn_version }}
     permissions:
