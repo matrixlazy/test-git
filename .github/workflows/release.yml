@@ -28,6 +28,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    needs: set_environment
     environment:
       name: ${{ needs.set_environment.outputs.my_env }}
     outputs:
